@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzconsumable;
 
+import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WarZConsumablePlugin extends JavaPlugin {
@@ -16,6 +17,7 @@ public final class WarZConsumablePlugin extends JavaPlugin {
 
         core = new WarZConsumable(this);
         core.load();
+        getServer().getServicesManager().register(WarZConsumableAPI.class, core, this, ServicePriority.Low);
     }
 
     @Override

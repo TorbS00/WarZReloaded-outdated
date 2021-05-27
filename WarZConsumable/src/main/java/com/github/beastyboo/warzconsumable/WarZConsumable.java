@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-public class WarZConsumable {
+public class WarZConsumable implements WarZConsumableAPI{
 
     final JavaPlugin plugin;
     private final Logger logger;
@@ -53,10 +53,17 @@ public class WarZConsumable {
         return logger;
     }
 
+    @Override
+    public void reload() {
+
+    }
+
+    @Override
     public Map<UUID, Long> getConsumableDelay() {
         return consumableDelay;
     }
 
+    @Override
     public Map<ItemStack, IConsumableItem> getConsumableItem() {
         return consumableItem;
     }
