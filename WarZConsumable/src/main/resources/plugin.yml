@@ -1,6 +1,6 @@
 name: WarZConsumable
 version: ${project.version}
-main: com.github.beastyboo.warzfood.WarZConsumablePlugin
+main: com.github.beastyboo.warzconsumable.WarZConsumablePlugin
 api-version: 1.16
 depend: [ WarZ ]
 authors: [ BeastyBoo, BrawlGames ]

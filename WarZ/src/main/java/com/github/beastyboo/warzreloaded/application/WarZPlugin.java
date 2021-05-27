@@ -4,14 +4,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WarZPlugin extends JavaPlugin {
 
+    private WarZ core;
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
+        core = new WarZ(this);
+        core.load();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        core.close();
+        core = null;
     }
 }

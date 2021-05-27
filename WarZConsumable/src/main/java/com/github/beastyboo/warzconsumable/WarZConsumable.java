@@ -1,0 +1,67 @@
+package com.github.beastyboo.warzconsumable;
+
+import com.github.beastyboo.warzconsumable.config.YamlPortConfiguration;
+import com.github.beastyboo.warzconsumable.entity.CannedBeans;
+import com.github.beastyboo.warzconsumable.port.IConfig;
+import com.github.beastyboo.warzconsumable.port.IConsumableItem;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.logging.Logger;
+
+public class WarZConsumable {
+
+    final JavaPlugin plugin;
+    private final Logger logger;
+    private final Map<UUID, Long> consumableDelay;
+    private final Map<ItemStack, IConsumableItem> consumableItem;
+    private final YamlPortConfiguration<IConfig> configManager;
+
+    private IConfig config;
+
+    WarZConsumable(JavaPlugin plugin) {
+        this.plugin = plugin;
+        logger = plugin.getLogger();
+        consumableDelay = new HashMap<>();
+        consumableItem = new HashMap<>();
+        configManager = YamlPortConfiguration.create(plugin.getDataFolder().toPath(), "config.yml", IConfig.class);
+        configManager.reloadConfig();
+        config = configManager.getConfigData();
+    }
+
+    void load() {
+        registerConsumableItems();
+    }
+
+    void close() {
+
+    }
+
+    private void registerConsumableItems() {
+        IConsumableItem cannedBeans = new CannedBeans();
+        consumableItem.put(cannedBeans.item(), cannedBeans);
+    }
+
+    public JavaPlugin getPlugin() {
+        return plugin;
+    }
+
+    public Logger getLogger() {
+        return logger;
+    }
+
+    public Map<UUID, Long> getConsumableDelay() {
+        return consumableDelay;
+    }
+
+    public Map<ItemStack, IConsumableItem> getConsumableItem() {
+        return consumableItem;
+    }
+
+    public IConfig getConfig() {
+        return config;
+    }
+}
