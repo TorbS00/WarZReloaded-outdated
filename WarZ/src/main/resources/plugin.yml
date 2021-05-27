@@ -1,0 +1,7 @@
+name: WarZ
+version: ${project.version}
+main: com.github.beastyboo.warzreloaded.application.WarZPlugin
+api-version: 1.16
+authors: [ BeastyBoo, BrawlGames ]
+description: Provides the essential WarZ features for PaperMC.
+website: https://github.com/BeastyBoo/WarZReloaded
