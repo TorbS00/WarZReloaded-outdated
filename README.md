@@ -19,7 +19,8 @@ Thanks for reading!
 		<url>https://jitpack.io</url>
 	</repository>
 </repositories>
-  
+  ```
+```
 <dependency>
 	<groupId>com.github.BeastyBoo</groupId>
 	<artifactId>WarZReloaded</artifactId>
@@ -35,8 +36,9 @@ Thanks for reading!
 		maven { url 'https://jitpack.io' }
 		}
 	}
-  
+```
+```
   dependencies {
 	        implementation 'com.github.BeastyBoo:WarZReloaded:v1.0.0'
 	}
-	```
+```
