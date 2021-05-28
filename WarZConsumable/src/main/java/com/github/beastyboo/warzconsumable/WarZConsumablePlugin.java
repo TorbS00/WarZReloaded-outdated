@@ -9,12 +9,6 @@ public final class WarZConsumablePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if(getServer().getPluginManager().getPlugin("WarZ") == null) {
-            getLogger().warning("[WarZ] Not found! Shutting down plugin.");
-            getLogger().warning("WarZConsumable can't run individually.");
-            getServer().getPluginManager().disablePlugin(this);
-        }
-
         core = new WarZConsumable(this);
         core.load();
         getServer().getServicesManager().register(WarZConsumableAPI.class, core, this, ServicePriority.Low);

@@ -48,14 +48,14 @@ public interface IConfig {
     @SubSection
     FoodSettings foodSettings();
 
-    @ConfHeader("Miscellaneous consumable item settings")
+    @ConfHeader("Miscellaneous consumable item settings. Delay in milliseconds")
     interface MiscSettings {
         @ConfDefault.DefaultLong(500)
         @ConfKey("sugar.delay")
         long sugarDelay();
 
         @ConfDefault.DefaultInteger(4)
-        @ConfComments("Unit in seconds")
+        @ConfComments("Potion effect (duration); Unit in seconds")
         @ConfKey("sugar.duration")
         int sugarDuration();
 
@@ -64,7 +64,7 @@ public interface IConfig {
         long goldenAppleDelay();
 
         @ConfDefault.DefaultInteger(5)
-        @ConfComments("Unit in seconds")
+        @ConfComments("Potion effect (duration); Unit in seconds")
         @ConfKey("golden-apple.duration")
         int goldenAppleDuration();
     }

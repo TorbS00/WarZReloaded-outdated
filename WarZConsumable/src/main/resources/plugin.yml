@@ -2,7 +2,6 @@ name: WarZConsumable
 version: ${project.version}
 main: com.github.beastyboo.warzconsumable.WarZConsumablePlugin
 api-version: 1.16
-depend: [ WarZ ]
 authors: [ BeastyBoo, BrawlGames ]
 description: Provides all Consumables which is related to WarZ
 website: https://github.com/BeastyBoo/WarZReloaded
