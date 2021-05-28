@@ -58,6 +58,15 @@ public interface IConfig {
         @ConfComments("Unit in seconds")
         @ConfKey("sugar.duration")
         int sugarDuration();
+
+        @ConfDefault.DefaultLong(500)
+        @ConfKey("golden-apple.delay")
+        long goldenAppleDelay();
+
+        @ConfDefault.DefaultInteger(5)
+        @ConfComments("Unit in seconds")
+        @ConfKey("golden-apple.duration")
+        int goldenAppleDuration();
     }
 
     @ConfKey("consumables.misc")

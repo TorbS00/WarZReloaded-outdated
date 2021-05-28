@@ -1,10 +1,7 @@
 package com.github.beastyboo.warzconsumable;
 
 import com.github.beastyboo.warzconsumable.config.YamlPortConfiguration;
-import com.github.beastyboo.warzconsumable.entity.CannedBeans;
-import com.github.beastyboo.warzconsumable.entity.CannedPasta;
-import com.github.beastyboo.warzconsumable.entity.CornedBeef;
-import com.github.beastyboo.warzconsumable.entity.Sugar;
+import com.github.beastyboo.warzconsumable.entity.*;
 import com.github.beastyboo.warzconsumable.port.IConfig;
 import com.github.beastyboo.warzconsumable.port.IConsumableItem;
 import org.bukkit.inventory.ItemStack;
@@ -55,6 +52,9 @@ public class WarZConsumable implements WarZConsumableAPI{
 
         IConsumableItem sugar = new Sugar();
         consumableItem.put(sugar.item(), sugar);
+
+        IConsumableItem goldenApple = new GoldenApple();
+        consumableItem.put(goldenApple.item(), goldenApple);
 
     }
 
