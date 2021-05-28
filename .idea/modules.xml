@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WarZ/WarZ.iml" filepath="$PROJECT_DIR$/WarZ/WarZ.iml" />
       <module fileurl="file://$PROJECT_DIR$/WarZConsumable/WarZConsumable.iml" filepath="$PROJECT_DIR$/WarZConsumable/WarZConsumable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WarZGuns/WarZGuns.iml" filepath="$PROJECT_DIR$/WarZGuns/WarZGuns.iml" />
     </modules>
   </component>
 </project>

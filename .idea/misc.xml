@@ -10,6 +10,7 @@
       <list>
         <option value="$PROJECT_DIR$/WarZ/pom.xml" />
         <option value="$PROJECT_DIR$/WarZConsumable/pom.xml" />
+        <option value="$PROJECT_DIR$/WarZGuns/pom.xml" />
       </list>
     </option>
   </component>

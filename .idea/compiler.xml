@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="WarZGuns" />
         <module name="WarZ" />
         <module name="WarZConsumable" />
       </profile>
@@ -13,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="WarZ" target="1.8" />
       <module name="WarZConsumable" target="1.8" />
+      <module name="WarZGuns" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
