@@ -9,7 +9,7 @@ Current new content I personally suggest brining into the meta is: Double handed
 
 Thanks for reading! 
 
-##For developers:
+## For developers:
 
 **Maven:**
 ```
