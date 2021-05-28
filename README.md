@@ -11,7 +11,8 @@ Thanks for reading!
 
 For developers:
 
-Maven:
+	Maven:
+```
 <repositories>
 		<repository>
 		    <id>jitpack.io</id>
@@ -24,8 +25,10 @@ Maven:
 	    <artifactId>WarZReloaded</artifactId>
 	    <version>v1.0.0</version>
 	</dependency>
+```
   
-  Gradle:
+	Gradle:
+  ```
   allprojects {
 		repositories {
 			...
@@ -36,3 +39,4 @@ Maven:
   dependencies {
 	        implementation 'com.github.BeastyBoo:WarZReloaded:v1.0.0'
 	}
+	```
