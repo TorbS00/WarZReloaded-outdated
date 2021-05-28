@@ -2,6 +2,8 @@ package com.github.beastyboo.warzconsumable;
 
 import com.github.beastyboo.warzconsumable.config.YamlPortConfiguration;
 import com.github.beastyboo.warzconsumable.entity.CannedBeans;
+import com.github.beastyboo.warzconsumable.entity.CannedPasta;
+import com.github.beastyboo.warzconsumable.entity.CornedBeef;
 import com.github.beastyboo.warzconsumable.port.IConfig;
 import com.github.beastyboo.warzconsumable.port.IConsumableItem;
 import org.bukkit.inventory.ItemStack;
@@ -43,6 +45,12 @@ public class WarZConsumable implements WarZConsumableAPI{
     private void registerConsumableItems() {
         IConsumableItem cannedBeans = new CannedBeans();
         consumableItem.put(cannedBeans.item(), cannedBeans);
+
+        IConsumableItem cannedPasta = new CannedPasta();
+        consumableItem.put(cannedPasta.item(), cannedPasta);
+
+        IConsumableItem cornedBeef = new CornedBeef();
+        consumableItem.put(cornedBeef.item(), cornedBeef);
     }
 
     public JavaPlugin getPlugin() {
