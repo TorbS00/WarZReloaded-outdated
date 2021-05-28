@@ -27,7 +27,6 @@ public class GoldenApple implements IConsumableItem {
         if(!playerItem.isSimilar(item())) {
             return false;
         }
-
         if(player.hasPotionEffect(PotionEffectType.HEAL)) {
             return false;
         }
