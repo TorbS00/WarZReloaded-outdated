@@ -48,4 +48,20 @@ public interface IConfig {
     @SubSection
     FoodSettings foodSettings();
 
+    @ConfHeader("Miscellaneous consumable item settings")
+    interface MiscSettings {
+        @ConfDefault.DefaultLong(500)
+        @ConfKey("sugar.delay")
+        long sugarDelay();
+
+        @ConfDefault.DefaultInteger(4)
+        @ConfComments("Unit in seconds")
+        @ConfKey("sugar.duration")
+        int sugarDuration();
+    }
+
+    @ConfKey("consumables.misc")
+    @SubSection
+    MiscSettings miscSettings();
+
 }
