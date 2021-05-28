@@ -14,25 +14,25 @@ Thanks for reading!
 **Maven:**
 ```
 <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
   
-  <dependency>
-	    <groupId>com.github.BeastyBoo</groupId>
-	    <artifactId>WarZReloaded</artifactId>
-	    <version>v1.0.0</version>
-	</dependency>
+<dependency>
+	<groupId>com.github.BeastyBoo</groupId>
+	<artifactId>WarZReloaded</artifactId>
+	<version>v1.0.0</version>
+</dependency>
 ```
   
 **Gradle:**
   ```
   allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 		}
 	}
   
