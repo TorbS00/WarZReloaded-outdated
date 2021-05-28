@@ -1,0 +1,5 @@
+name: WarZGuns
+version: ${project.version}
+main: com.github.beastyboo.warzguns.WarZGunsPlugin
+api-version: 1.16
+description: Provides the gun/weapon aspect to WarZ, and can be used individually for other servers as well. 
