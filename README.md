@@ -42,3 +42,43 @@ Thanks for reading!
 	        implementation 'com.github.BeastyBoo:WarZReloaded:v1.0.0'
 	}
 ```
+
+**Using the various API's**
+
+Since we register the interface we want to expose in Bukkits ServiceManager, we can get the API using the similar method as many have experienced with Vault. 
+You will need to access WarZConsumableAPI and WarZGunsAPI similarly to this. 
+
+```
+public final class MyPlugin extends JavaPlugin {
+
+    private WarZAPI warzAPI = null;
+
+    @Override
+    public void onEnable() {
+        if (!setupWarZAPI() ) {
+            getLogger().severe(String.format("[%s] - Disabled due to no WarZ dependency found!", plugin.getDescription().getName()));
+            getServer().getPluginManager().disablePlugin(plugin);
+            return;
+        }
+    }
+    
+    public WarZAPI getWarZAPI() {
+        return warzAPI;
+    }
+    
+    private boolean setupWarZAPI() {
+        if (getServer().getPluginManager().getPlugin("WarZ") == null) {
+            return false;
+        }
+
+        RegisteredServiceProvider<WarZAPI> rsp = getServer().getServicesManager().getRegistration(WarZAPI.class);
+        if(rsp == null) {
+            return false;
+        }
+
+        warzAPI = rsp.getProvider();
+        return warzAPI != null;
+    }
+}
+
+```

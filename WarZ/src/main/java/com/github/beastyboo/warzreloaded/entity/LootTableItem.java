@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzreloaded.application.entity;
+package com.github.beastyboo.warzreloaded.entity;
 
 import org.bukkit.inventory.ItemStack;
 

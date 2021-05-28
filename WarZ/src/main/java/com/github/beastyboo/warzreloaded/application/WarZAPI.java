@@ -1,6 +1,6 @@
 package com.github.beastyboo.warzreloaded.application;
 
-import com.github.beastyboo.warzreloaded.application.entity.Zone;
+import com.github.beastyboo.warzreloaded.entity.Zone;
 import org.bukkit.command.CommandSender;
 
 import java.util.Map;
