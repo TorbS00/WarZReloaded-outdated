@@ -43,6 +43,25 @@ Thanks for reading!
 	}
 ```
 
+**General plugin development**
+
+For a Java developer with no prior Paper/Spigot API experience, I will provide a short operative system fundamentals, and why this is important for us as plugin developers. 
+
+
+In order to understand how the API works, and java applications in general, we need to understand what threads are, and where they live. 
+
+* When we turn on the computer, a special program named the operative system (OS) is loaded from the disk, into the memory. The OS basically help us interact with the hardware and importantly the CPU. 
+* All our data resite on a disk as a file, and when a user runs an application, the OS takes the program from the disk and creates an instance 
+of that program in the memory. That specific instance is called a process AKA context.
+  
+* Each process is completely isolated from other processes, and each process contains: Process metadata, files, heap, code and minimum one thread. (The main thread). Note: Each process can contain multiple threads. Each thread also contains a stack and an instruction pointer.
+* Thread management, (scheduling which thread should run on the CPU) is called a context switch. I won't explain this into depths, however an important note is: Too many threads results in thrashing, which means you spend more time on thread management than actual productive work. While also threads consume less resources than processes, which makes context switching between threads much faster than between processes. Keep this in mind when using concurrency (Multitasking)
+* Now for us plugin developers; A plugin is just something which hooks into the API; It runs where you tell it to run. If you listen to events on the main thread, your code will therefore run on the main thread. The server is the application, and the API exposes various hook points, such as events where your plugin code runs. 
+* From that, we know that our plugins run in the same instance as the server, resulting in sharing process information with the API. We are able to schedule our own threads on this instance, and it's heavily recommended when executing long tasks, such as IO. 
+* Now that you understand how a Java application works, you can get started with the Paper/Spigot API. Further information in this link: https://www.spigotmc.org/wiki/spigot-plugin-development/
+
+
+
 **Using the various API's**
 
 Since we register the interface we want to expose in Bukkits ServiceManager, we can get the API using the similar method as many have experienced with Vault. 
