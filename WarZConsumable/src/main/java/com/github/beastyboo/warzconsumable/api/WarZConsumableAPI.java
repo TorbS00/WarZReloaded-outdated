@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzconsumable;
+package com.github.beastyboo.warzconsumable.api;
 
 import com.github.beastyboo.warzconsumable.port.IConsumableItem;
 import org.bukkit.inventory.ItemStack;
@@ -10,8 +10,8 @@ public interface WarZConsumableAPI {
 
     void reload();
 
-    Map<UUID, Long> getConsumableDelay();
+    Map<UUID, Long> getConsumableDelayMapCopy();
 
-    Map<ItemStack, IConsumableItem> getConsumableItem();
+    Map<ItemStack, IConsumableItem> getConsumableItemMapCopy();
 
 }

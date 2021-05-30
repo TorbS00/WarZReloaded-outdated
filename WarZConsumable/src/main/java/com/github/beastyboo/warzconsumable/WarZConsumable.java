@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzconsumable;
 
+import com.github.beastyboo.warzconsumable.api.WarZConsumableAPI;
 import com.github.beastyboo.warzconsumable.config.YamlPortConfiguration;
 import com.github.beastyboo.warzconsumable.entity.*;
 import com.github.beastyboo.warzconsumable.port.IConfig;
@@ -12,7 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-public class WarZConsumable implements WarZConsumableAPI{
+public class WarZConsumable implements WarZConsumableAPI {
 
     final JavaPlugin plugin;
     private final Logger logger;
@@ -72,11 +73,20 @@ public class WarZConsumable implements WarZConsumableAPI{
     }
 
     @Override
+    public Map<UUID, Long> getConsumableDelayMapCopy() {
+        return Map.copyOf(getConsumableDelay());
+    }
+
+    @Override
+    public Map<ItemStack, IConsumableItem> getConsumableItemMapCopy() {
+        return Map.copyOf(getConsumableItem());
+    }
+
+
     public Map<UUID, Long> getConsumableDelay() {
         return consumableDelay;
     }
 
-    @Override
     public Map<ItemStack, IConsumableItem> getConsumableItem() {
         return consumableItem;
     }

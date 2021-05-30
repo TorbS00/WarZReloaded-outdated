@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzconsumable;
 
+import com.github.beastyboo.warzconsumable.api.WarZConsumableAPI;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
