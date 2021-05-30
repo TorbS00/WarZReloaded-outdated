@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzreloaded.application;
+package com.github.beastyboo.warzreloaded.api;
 
 import com.github.beastyboo.warzreloaded.entity.Zone;
 import org.bukkit.command.CommandSender;
@@ -15,6 +15,6 @@ public interface WarZAPI {
 
     Zone getZone(String name);
 
-    Map<String, Zone> getZoneMap();
+    Map<String, Zone> getZoneMapCopy();
 
 }

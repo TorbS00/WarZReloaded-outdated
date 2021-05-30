@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzreloaded.application;
 
+import com.github.beastyboo.warzreloaded.api.WarZAPI;
 import com.github.beastyboo.warzreloaded.entity.Zone;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class WarZ implements WarZAPI{
+public class WarZ implements WarZAPI {
 
     final JavaPlugin plugin;
     private final Logger logger;
@@ -73,6 +74,10 @@ public class WarZ implements WarZAPI{
     }
 
     @Override
+    public Map<String, Zone> getZoneMapCopy() {
+        return Map.copyOf(getZoneMap());
+    }
+
     public Map<String, Zone> getZoneMap() {
         return zoneMap;
     }

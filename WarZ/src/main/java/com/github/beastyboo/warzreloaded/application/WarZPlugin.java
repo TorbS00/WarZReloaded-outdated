@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzreloaded.application;
 
+import com.github.beastyboo.warzreloaded.api.WarZAPI;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
