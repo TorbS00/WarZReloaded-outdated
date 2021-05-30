@@ -8,16 +8,16 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class MountainDew implements IConsumableItem {
+public class WaterBottle implements IConsumableItem {
 
     @Override
     public ItemStack item() {
-        return new ItemStack(Material.INK_SAC, 1, (byte) 15);
+        return new ItemStack(Material.POTION, 1, (byte) 0);
     }
 
     @Override
     public long delay(WarZConsumable warZConsumable) {
-        return warZConsumable.getConfig().drinkSettings().mountaindewDelay();
+        return warZConsumable.getConfig().drinkSettings().waterbottleDelay();
     }
 
     @Override
@@ -33,19 +33,19 @@ public class MountainDew implements IConsumableItem {
             return false;
         }
 
-        double health = warZConsumable.getConfig().drinkSettings().mountaindewHeal();
+        double health = warZConsumable.getConfig().drinkSettings().waterbottleHeal();
         double newHealth = player.getHealth() + health;
         double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
 
         player.setHealth(Math.min(newHealth, maxHealth));
 
-        int foodLevel = warZConsumable.getConfig().drinkSettings().mountaindewFood();
+        int foodLevel = warZConsumable.getConfig().drinkSettings().waterbottleFood();
         int newFoodLevel = player.getFoodLevel() + foodLevel;
         int maxFoodLevel = 20;
 
         player.setFoodLevel(Math.min(newFoodLevel, maxFoodLevel));
 
-        double newStamina = staminaPlayer.getCurrentStaminaLevel() + warZConsumable.getConfig().drinkSettings().mountaindewStamina();
+        double newStamina = staminaPlayer.getCurrentStaminaLevel() + warZConsumable.getConfig().drinkSettings().waterbottleStamina();
         staminaPlayer.setCurrentStaminaLevel(Math.min(newStamina, staminaPlayer.getMaxStaminaLevel()));
 
         return true;

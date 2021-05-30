@@ -76,6 +76,14 @@ public class WarZConsumable implements WarZConsumableAPI {
         IConsumableItem goldenApple = new GoldenApple();
         consumableItem.put(goldenApple.item(), goldenApple);
 
+        IConsumableItem mountainDew = new MountainDew();
+        consumableItem.put(mountainDew.item(), mountainDew);
+
+        IConsumableItem pepsi = new Pepsi();
+        consumableItem.put(pepsi.item(), pepsi);
+
+        IConsumableItem waterBottle = new WaterBottle();
+        consumableItem.put(waterBottle.item(), waterBottle);
     }
 
     private void registerListener(PluginManager manager) {
@@ -124,19 +132,6 @@ public class WarZConsumable implements WarZConsumableAPI {
     }
 
     private void updateStaminaPlayers() {
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this.getPlugin(), () -> {
-            for(StaminaPlayer player : staminaPlayerMap.values()) {
-                if(!player.isActive()) {
-                    double newStamina = player.getCurrentStaminaLevel() + config.staminaSettings().recoveryRate();
-                    if(newStamina > player.getMaxStaminaLevel()) {
-                        player.setCurrentStaminaLevel(player.getMaxStaminaLevel());
-                    } else {
-                        player.setCurrentStaminaLevel(newStamina);
-                    }
-                }
-            }
-        }, 0L, 20L);
-
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this.getPlugin(), () -> {
             for(StaminaPlayer staminaPlayer : staminaPlayerMap.values()) {
                 Player player = Bukkit.getPlayer(staminaPlayer.getUuid());

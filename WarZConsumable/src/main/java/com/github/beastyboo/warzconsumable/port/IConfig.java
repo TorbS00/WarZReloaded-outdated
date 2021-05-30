@@ -48,6 +48,63 @@ public interface IConfig {
     @SubSection
     FoodSettings foodSettings();
 
+    @ConfHeader("Drink settings (Delay (Milliseconds) | heal amount | food level amount)")
+    interface DrinkSettings {
+
+        @ConfDefault.DefaultDouble(4)
+        @ConfKey("pepsi.stamina")
+        double pepsiStamina();
+
+        @ConfDefault.DefaultDouble(0.5)
+        @ConfKey("pepsi.health")
+        double pepsiHeal();
+
+        @ConfDefault.DefaultInteger(2)
+        @ConfKey("pepsi.food")
+        int pepsiFood();
+
+        @ConfDefault.DefaultLong(500)
+        @ConfKey("pepsi.delay")
+        long pepsiDelay();
+
+        @ConfDefault.DefaultDouble(4)
+        @ConfKey("waterbottle.stamina")
+        double waterbottleStamina();
+
+        @ConfDefault.DefaultDouble(0.5)
+        @ConfKey("waterbottle.health")
+        double waterbottleHeal();
+
+        @ConfDefault.DefaultInteger(2)
+        @ConfKey("waterbottle.food")
+        int waterbottleFood();
+
+        @ConfDefault.DefaultLong(500)
+        @ConfKey("waterbottle.delay")
+        long waterbottleDelay();
+
+        @ConfDefault.DefaultDouble(4)
+        @ConfKey("mountaindew.stamina")
+        double mountaindewStamina();
+
+        @ConfDefault.DefaultDouble(0.5)
+        @ConfKey("mountaindew.health")
+        double mountaindewHeal();
+
+        @ConfDefault.DefaultInteger(2)
+        @ConfKey("mountaindew.food")
+        int mountaindewFood();
+
+        @ConfDefault.DefaultLong(500)
+        @ConfKey("mountaindew.delay")
+        long mountaindewDelay();
+
+    }
+
+    @ConfKey("consumables.drink")
+    @SubSection
+    DrinkSettings drinkSettings();
+
     @ConfHeader("Miscellaneous consumable item settings. Delay in milliseconds")
     interface MiscSettings {
         @ConfDefault.DefaultLong(500)
@@ -85,11 +142,6 @@ public interface IConfig {
         @ConfKey("tire-rate")
         @ConfComments({"Tire rate (the amount of stamina lost per 1 tick = 50ms)"})
         double tireRate();
-
-        @ConfDefault.DefaultDouble(0.1)
-        @ConfKey("recovery-rate")
-        @ConfComments({"The amount of stamina the player regains per second"})
-        double recoveryRate();
 
         @ConfDefault.DefaultDouble(3.0)
         @ConfKey("slowness-threshold")
