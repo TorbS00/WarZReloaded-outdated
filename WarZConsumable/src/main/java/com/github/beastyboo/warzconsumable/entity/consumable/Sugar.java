@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzconsumable.entity;
+package com.github.beastyboo.warzconsumable.entity.consumable;
 
 import com.github.beastyboo.warzconsumable.WarZConsumable;
 import com.github.beastyboo.warzconsumable.port.IConsumableItem;
@@ -8,16 +8,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class GoldenApple implements IConsumableItem {
+public class Sugar implements IConsumableItem {
 
     @Override
     public ItemStack item() {
-        return new ItemStack(Material.GOLDEN_APPLE);
+        return new ItemStack(Material.SUGAR);
     }
 
     @Override
     public long delay(WarZConsumable warZConsumable) {
-        return warZConsumable.getConfig().miscSettings().goldenAppleDelay();
+        return warZConsumable.getConfig().miscSettings().sugarDelay();
     }
 
     @Override
@@ -27,12 +27,13 @@ public class GoldenApple implements IConsumableItem {
         if(!playerItem.isSimilar(item())) {
             return false;
         }
-        if(player.hasPotionEffect(PotionEffectType.HEAL)) {
+
+        if(player.hasPotionEffect(PotionEffectType.SPEED)) {
             return false;
         }
 
-        int duration = warZConsumable.getConfig().miscSettings().goldenAppleDuration()* 20;
-        player.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, duration, 1, true, true, true));
+        int duration = warZConsumable.getConfig().miscSettings().sugarDuration() * 20;
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, 1, true, true, true));
         return true;
     }
 }

@@ -73,4 +73,32 @@ public interface IConfig {
     @SubSection
     MiscSettings miscSettings();
 
+    @ConfHeader("Stamina settings")
+    interface StaminaSettings {
+
+        @ConfDefault.DefaultDouble(20.0)
+        @ConfKey("max-stamina-default")
+        @ConfComments({"Represents the max stamina a player can have"})
+        double maxStaminaDefault();
+
+        @ConfDefault.DefaultDouble(0.2)
+        @ConfKey("tire-rate")
+        @ConfComments({"Tire rate (the amount of stamina lost per 1 tick = 50ms)"})
+        double tireRate();
+
+        @ConfDefault.DefaultDouble(0.1)
+        @ConfKey("recovery-rate")
+        @ConfComments({"The amount of stamina the player regains per second"})
+        double recoveryRate();
+
+        @ConfDefault.DefaultDouble(3.0)
+        @ConfKey("slowness-threshold")
+        @ConfComments({"If stamina is less than this value, player will be slowed"})
+        double slownessThreshold();
+    }
+
+    @ConfKey("stamina.settings")
+    @SubSection
+    StaminaSettings staminaSettings();
+
 }

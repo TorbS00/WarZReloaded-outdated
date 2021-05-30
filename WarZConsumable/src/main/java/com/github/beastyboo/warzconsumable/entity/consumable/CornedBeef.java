@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzconsumable.entity;
+package com.github.beastyboo.warzconsumable.entity.consumable;
 
 import com.github.beastyboo.warzconsumable.WarZConsumable;
 import com.github.beastyboo.warzconsumable.port.IConsumableItem;
@@ -7,16 +7,16 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class CannedBeans implements IConsumableItem {
+public class CornedBeef implements IConsumableItem {
 
     @Override
     public ItemStack item() {
-        return new ItemStack(Material.LAPIS_LAZULI);
+        return new ItemStack(Material.COOKED_BEEF);
     }
 
     @Override
     public long delay(WarZConsumable warZConsumable) {
-        return warZConsumable.getConfig().foodSettings().cannedBeansDelay();
+        return warZConsumable.getConfig().foodSettings().cornedBeefDelay();
     }
 
     @Override
@@ -27,13 +27,13 @@ public class CannedBeans implements IConsumableItem {
             return false;
         }
 
-        double health = warZConsumable.getConfig().foodSettings().cannedBeansHeal();
+        double health = warZConsumable.getConfig().foodSettings().cornedBeefHeal();
         double newHealth = player.getHealth() + health;
         double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
 
         player.setHealth(Math.min(newHealth, maxHealth));
 
-        int foodLevel = warZConsumable.getConfig().foodSettings().cannedBeansFood();
+        int foodLevel = warZConsumable.getConfig().foodSettings().cornedBeefFood();
         int newFoodLevel = player.getFoodLevel() + foodLevel;
         int maxFoodLevel = 20;
 
