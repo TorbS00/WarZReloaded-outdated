@@ -101,7 +101,7 @@ public class WarZConsumable implements WarZConsumableAPI {
 
     @Override
     public void reload() {
-
+        
     }
 
     @Override
