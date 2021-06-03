@@ -101,3 +101,9 @@ public final class MyPlugin extends JavaPlugin {
 }
 
 ```
+
+
+# WarZ Guns
+
+Graph for gun-damage. Note this does not include toughness! meaning for Diamond and Netherite armor the damage will be lower compared to this image. 
+![armorVSdamage](https://user-images.githubusercontent.com/65355670/120720061-b0e2f080-c4cb-11eb-9c3c-fba97b508140.png)
