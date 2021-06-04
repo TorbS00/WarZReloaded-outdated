@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzguns;
 
+import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.concurrent.Executor;
@@ -19,6 +20,7 @@ public class WarZGuns {
     }
 
     void load() {
+        plugin.getServer().getPluginManager().registerEvents(new TestEvents(this), plugin);
     }
 
     void close() {

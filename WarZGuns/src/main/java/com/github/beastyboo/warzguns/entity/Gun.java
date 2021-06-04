@@ -2,105 +2,37 @@ package com.github.beastyboo.warzguns.entity;
 
 import org.bukkit.Material;
 
-public class Gun {
+public interface Gun {
 
-    private final String gunName;
-    private final Material material;
-    private final boolean canAim;
-    private final Ammo ammo;
-    private final double damage;
-    private final int roundsPerBurst;
-    private final long reloadTime;
-    private final int maxDistance;
-    private final long delay;
-    private final double bulletSpeed;
-    private final double accuracy;
-    private final double accuracy_aimed;
-    private final double accuracy_crouched;
-    private final double targetKnockBack;
-    private final double recoil;
-    private final int maxClipSize;
+    String name();
 
-    public Gun(String gunName, Material material, boolean canAim, Ammo ammo, double damage, int roundsPerBurst, long reloadTime, int maxDistance, long delay, double bulletSpeed, double accuracy, double accuracy_aimed, double accuracy_crouched, double targetKnockback, double recoil, int maxClipSize) {
-        this.gunName = gunName;
-        this.material = material;
-        this.canAim = canAim;
-        this.ammo = ammo;
-        this.damage = damage;
-        this.roundsPerBurst = roundsPerBurst;
-        this.reloadTime = reloadTime;
-        this.maxDistance = maxDistance;
-        this.delay = delay;
-        this.bulletSpeed = bulletSpeed;
-        this.accuracy = accuracy;
-        this.accuracy_aimed = accuracy_aimed;
-        this.accuracy_crouched = accuracy_crouched;
-        this.targetKnockBack = targetKnockback;
-        this.recoil = recoil;
-        this.maxClipSize = maxClipSize;
-    }
+    Material material();
 
-    public String getGunName() {
-        return gunName;
-    }
+    Ammo ammo();
 
-    public Material getMaterial() {
-        return material;
-    }
+    FireMode fireMode();
 
-    public boolean isCanAim() {
-        return canAim;
-    }
+    boolean canAim();
 
-    public Ammo getAmmo() {
-        return ammo;
-    }
+    long reloadTime();
 
-    public double getDamage() {
-        return damage;
-    }
+    long delay();
 
-    public int getRoundsPerBurst() {
-        return roundsPerBurst;
-    }
+    int maxDistance();
 
-    public long getReloadTime() {
-        return reloadTime;
-    }
+    int maxClipSize();
 
-    public int getMaxDistance() {
-        return maxDistance;
-    }
+    double damagePerBullet();
 
-    public long getDelay() {
-        return delay;
-    }
+    double bulletSpeed();
 
-    public double getBulletSpeed() {
-        return bulletSpeed;
-    }
+    double accuracy();
 
-    public double getAccuracy() {
-        return accuracy;
-    }
+    double accuracyAimed();
 
-    public double getAccuracy_aimed() {
-        return accuracy_aimed;
-    }
+    double accuracyCrouched();
 
-    public double getAccuracy_crouched() {
-        return accuracy_crouched;
-    }
+    double targetKnockBack();
 
-    public double getTargetKnockBack() {
-        return targetKnockBack;
-    }
-
-    public double getRecoil() {
-        return recoil;
-    }
-
-    public int getMaxClipSize() {
-        return maxClipSize;
-    }
+    double recoil();
 }
