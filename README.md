@@ -107,3 +107,6 @@ public final class MyPlugin extends JavaPlugin {
 
 Graph for gun-damage. Note this does not include toughness! meaning for Diamond and Netherite armor the damage will be lower compared to this image. 
 ![armorVSdamage](https://user-images.githubusercontent.com/65355670/120720061-b0e2f080-c4cb-11eb-9c3c-fba97b508140.png)
+
+Additional to this graph, you are able to calculate the damage you would receive using the command: /damage <Base_Damage> <Armor_Defense> <Armor_Toughness> 
+which would give a more accurate result, since we include armor toughness in our algorithm.
