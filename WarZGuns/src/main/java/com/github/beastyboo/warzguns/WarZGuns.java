@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzguns;
 
+import com.github.beastyboo.warzguns.calculator.DamageCalculator;
 import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +14,8 @@ public class WarZGuns {
     private final Logger logger;
     private final Executor executor;
 
+    private DamageCalculator damageCalculator;
+
     WarZGuns(JavaPlugin plugin) {
         this.plugin = plugin;
         logger = plugin.getLogger();
@@ -20,6 +23,8 @@ public class WarZGuns {
     }
 
     void load() {
+        damageCalculator = new DamageCalculator(this);
+
         plugin.getServer().getPluginManager().registerEvents(new TestEvents(this), plugin);
     }
 
@@ -45,5 +50,9 @@ public class WarZGuns {
      */
     public Executor getExecutor() {
         return executor;
+    }
+
+    public DamageCalculator getDamageCalculator() {
+        return damageCalculator;
     }
 }
