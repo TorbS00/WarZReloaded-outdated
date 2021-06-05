@@ -12,6 +12,11 @@ public class AssaultRifle implements Gun{
     }
 
     @Override
+    public WeaponClass weaponClass() {
+        return WeaponClass.ASSAULT_RIFLE;
+    }
+
+    @Override
     public Material material() {
         return null;
     }

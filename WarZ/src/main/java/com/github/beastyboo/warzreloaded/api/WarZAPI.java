@@ -3,8 +3,6 @@ package com.github.beastyboo.warzreloaded.api;
 import com.github.beastyboo.warzreloaded.entity.Zone;
 import org.bukkit.command.CommandSender;
 
-import java.util.Map;
-
 public interface WarZAPI {
 
     boolean createZone(String name);
@@ -14,7 +12,5 @@ public interface WarZAPI {
     void sendZoneList(CommandSender sender);
 
     Zone getZone(String name);
-
-    Map<String, Zone> getZoneMapCopy();
 
 }

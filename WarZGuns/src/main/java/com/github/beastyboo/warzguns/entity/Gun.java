@@ -6,6 +6,8 @@ public interface Gun {
 
     String name();
 
+    WeaponClass weaponClass();
+
     Material material();
 
     Ammo ammo();
@@ -35,4 +37,5 @@ public interface Gun {
     double targetKnockBack();
 
     double recoil();
+
 }

@@ -51,6 +51,11 @@ public class Pistol implements Gun {
     }
 
     @Override
+    public WeaponClass weaponClass() {
+        return WeaponClass.PISTOL;
+    }
+
+    @Override
     public Material material() {
         return material;
     }

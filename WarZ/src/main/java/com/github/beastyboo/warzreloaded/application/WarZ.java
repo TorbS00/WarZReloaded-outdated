@@ -73,11 +73,6 @@ public class WarZ implements WarZAPI {
         return zoneMap.get(name.toLowerCase());
     }
 
-    @Override
-    public Map<String, Zone> getZoneMapCopy() {
-        return Map.copyOf(getZoneMap());
-    }
-
     public Map<String, Zone> getZoneMap() {
         return zoneMap;
     }

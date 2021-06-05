@@ -9,14 +9,18 @@ public class Zone {
     private final String name;
     private final Set<LootTableItem> zoneLootTable;
 
+    private ZoneZombie zoneZombie;
+
     public Zone(String name) {
         this.name = name;
         zoneLootTable = new HashSet<>();
+        zoneZombie = null;
     }
 
-    public Zone(String name, Set<LootTableItem> zoneLootTable) {
+    public Zone(String name, Set<LootTableItem> zoneLootTable, ZoneZombie zoneZombie) {
         this.name = name;
         this.zoneLootTable = zoneLootTable;
+        this.zoneZombie = zoneZombie;
     }
 
     public String getName() {
@@ -25,6 +29,14 @@ public class Zone {
 
     public Set<LootTableItem> getZoneLootTable() {
         return zoneLootTable;
+    }
+
+    public ZoneZombie getZoneZombie() {
+        return zoneZombie;
+    }
+
+    public void setZoneZombie(ZoneZombie zoneZombie) {
+        this.zoneZombie = zoneZombie;
     }
 
     @Override
