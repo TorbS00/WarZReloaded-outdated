@@ -1,17 +1,16 @@
 package com.github.beastyboo.warzguns.listener;
 
 import com.github.beastyboo.warzguns.WarZGuns;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
 import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.util.Vector;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -39,6 +38,24 @@ public class TestEvents implements Listener {
 
         Player player = event.getPlayer();
         Snowball bullet = player.launchProjectile(Snowball.class, player.getLocation().getDirection());
+        bullet.setShooter(event.getPlayer());
+
+        //Example 15 blocks:
+
+        /*
+        Location fifteenBlocksAway = player.getLocation().add(player.getLocation().getDirection().multiply(100));
+        Location playerLocation = player.getLocation();
+        double vectorX = Math.pow(Math.sqrt(playerLocation.getX() - fifteenBlocksAway.getX()), 2);
+        double vectorY = Math.pow(Math.sqrt(playerLocation.getY() - fifteenBlocksAway.getY()), 2);
+        double vectorZ = Math.pow(Math.sqrt(playerLocation.getZ() - fifteenBlocksAway.getZ()), 2);
+        Vector vector = new Vector(vectorX, vectorY, vectorZ);
+
+        Vector direction = player.getLocation().getDirection().normalize();
+        direction.multiply(15);
+
+        bullet.setVelocity(direction);
+         */
+
         bullets.add(bullet.getUniqueId());
     }
 
@@ -58,8 +75,16 @@ public class TestEvents implements Listener {
                 return;
             }
 
-            event.setDamage(11);
+
+
+
+            event.setDamage(25);
 
         }
     }
+
+    //Gun methods:
+
+
+
 }

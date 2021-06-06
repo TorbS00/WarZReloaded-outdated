@@ -1,4 +1,4 @@
-package com.github.beastyboo.warzguns.entity;
+package com.github.beastyboo.warzguns.gun;
 
 public enum WeaponClass {
 

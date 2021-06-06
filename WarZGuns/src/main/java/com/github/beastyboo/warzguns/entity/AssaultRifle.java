@@ -1,5 +1,7 @@
 package com.github.beastyboo.warzguns.entity;
 
+import com.github.beastyboo.warzguns.gun.FireMode;
+import com.github.beastyboo.warzguns.gun.WeaponClass;
 import org.bukkit.Material;
 
 public class AssaultRifle implements Gun{
