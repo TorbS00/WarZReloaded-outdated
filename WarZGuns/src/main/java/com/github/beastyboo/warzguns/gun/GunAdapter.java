@@ -22,7 +22,7 @@ public class GunAdapter extends TypeAdapter<Gun> {
         out.name("fireMode-identifier").value(gun.getFireMode().identifier());
 
         if(gun.getFireMode() instanceof SingleFireMode) {
-            out.name("fireMode").value(" ");
+            out.name("fireMode").value("single fire mode");
         }
 
         else if(gun.getFireMode() instanceof ShotgunFireMode) {
@@ -100,7 +100,7 @@ public class GunAdapter extends TypeAdapter<Gun> {
                     material = Material.getMaterial(in.nextString());
                     break;
                 case "ammo":
-                    ammo = null;
+                    ammo = new Ammo(in.nextString());
                     break;
                 case "weaponClass":
                     weaponClass = Enum.valueOf(WeaponClass.class, in.nextString());
@@ -113,6 +113,7 @@ public class GunAdapter extends TypeAdapter<Gun> {
                     break;
                 case "fireMode":
                     if(fireModeIdentifier.equalsIgnoreCase("default")) {
+                        String test = in.nextString();
                         fireMode = new SingleFireMode();
                     }
                     else if(fireModeIdentifier.equalsIgnoreCase("shotgun")) {

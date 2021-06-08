@@ -44,4 +44,11 @@ public class ShotgunFireMode implements IFireMode {
     public int getBulletsPerRound() {
         return bulletsPerRound;
     }
+
+    @Override
+    public String toString() {
+        return "ShotgunFireMode{" +
+                "bulletsPerRound=" + bulletsPerRound +
+                '}';
+    }
 }

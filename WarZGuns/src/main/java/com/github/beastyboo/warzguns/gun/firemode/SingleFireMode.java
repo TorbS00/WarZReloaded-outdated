@@ -29,4 +29,9 @@ public class SingleFireMode implements IFireMode {
         core.getGunDelayMap().put(uuid, System.currentTimeMillis() + gun.getDelay());
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "SingleFireMode{}";
+    }
 }

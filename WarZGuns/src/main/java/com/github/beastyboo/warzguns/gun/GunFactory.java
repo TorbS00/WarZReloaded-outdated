@@ -1,10 +1,14 @@
 package com.github.beastyboo.warzguns.gun;
 
 import com.github.beastyboo.warzguns.WarZGuns;
+import com.github.beastyboo.warzguns.gun.firemode.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.bukkit.Material;
 
 import java.io.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GunFactory {
 
@@ -12,6 +16,8 @@ public class GunFactory {
     private final GunTracker gunTracker;
     private final Gson gson;
     private final File gunFolder;
+
+    private volatile Set<Gun> testGuns = new HashSet<>();
 
     public GunFactory(WarZGuns core) {
         this.core = core;
@@ -21,6 +27,7 @@ public class GunFactory {
     }
 
     public void executeGunFactory() {
+
         if(!gunFolder.exists()) {
             gunFolder.mkdirs();
         }
@@ -35,6 +42,46 @@ public class GunFactory {
             Gun gun = this.deserialize(json);
             gunTracker.addGun(gun);
         }
+
+    }
+
+    public void createTestGuns() {
+        //Single-shot:
+        IFireMode singleShot = new SingleFireMode();
+        Gun barret = new Gun("Barret", Material.DIAMOND_AXE, WeaponClass.SNIPER_RIFLE, FireModeType.BOLT, singleShot);
+
+        //Shotgun
+        IFireMode shotgunShot = new ShotgunFireMode(5);
+        Gun spas = new Gun("spas", Material.DIAMOND_PICKAXE, WeaponClass.SHOTGUN, FireModeType.PUMP, shotgunShot);
+
+        //Burst
+        IFireMode burstShot = new BurstFireMode(3, 1000);
+        Gun m16 = new Gun("m16", Material.IRON_HOE, WeaponClass.ASSAULT_RIFLE, FireModeType.BURST, burstShot);
+
+        testGuns.add(barret);
+        testGuns.add(spas);
+        testGuns.add(m16);
+
+        core.getExecutor().execute(() -> {
+            if(!gunFolder.exists()) {
+                gunFolder.mkdirs();
+            }
+
+            this.saveFile(new File(gunFolder, barret.getGunName() + ".json"), this.serialize(barret));
+            this.saveFile(new File(gunFolder, spas.getGunName() + ".json"), this.serialize(spas));
+            this.saveFile(new File(gunFolder, m16.getGunName() + ".json"), this.serialize(m16));
+        });
+
+        /*
+        for(Gun gun : testGuns) {
+            File file = new File(gunFolder, gun.getGunName() + ".json");
+            if(!gunFolder.exists()) {
+                gunFolder.mkdirs();
+            }
+            String json = this.serialize(gun);
+            this.saveFile(file, json);
+        }
+         */
 
     }
 

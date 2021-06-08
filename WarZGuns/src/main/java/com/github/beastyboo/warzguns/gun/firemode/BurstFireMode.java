@@ -60,4 +60,13 @@ public class BurstFireMode implements IFireMode {
     public long getCompleteTime() {
         return completeTime;
     }
+
+    @Override
+    public String toString() {
+        return "BurstFireMode{" +
+                "bulletsPerBurst=" + bulletsPerBurst +
+                ", completeTime=" + completeTime +
+                ", burstDelay=" + burstDelay +
+                '}';
+    }
 }

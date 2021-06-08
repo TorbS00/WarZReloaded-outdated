@@ -40,6 +40,8 @@ public class TestEvents implements Listener {
         Snowball bullet = player.launchProjectile(Snowball.class, player.getLocation().getDirection());
         bullet.setShooter(event.getPlayer());
 
+        core.getGunFactory().createTestGuns();
+
         //Example 15 blocks:
 
         /*
