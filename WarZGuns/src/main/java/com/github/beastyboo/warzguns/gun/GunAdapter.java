@@ -168,7 +168,7 @@ public class GunAdapter extends TypeAdapter<Gun> {
                     recoil = in.nextDouble();
                     break;
                 default:
-                    in.skipValue();
+                    throw new IOException("Gun files are corrupt! Appeared in: " + gunName);
             }
         }
         Gun gun = new Gun(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxDistance, maxClipSize, damagePerBullet,

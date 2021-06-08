@@ -27,7 +27,7 @@ public class ShotgunFireAdapter extends TypeAdapter<ShotgunFireMode> {
                     bulletsPerRound = in.nextInt();
                     break;
                 default:
-                    in.skipValue();
+                    throw new IOException("Gun files are corrupt! Appeared in: shotgun-fire section.");
             }
         }
 

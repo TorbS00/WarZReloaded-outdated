@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 
 public class BurstFireAdapter extends TypeAdapter<BurstFireMode> {
 
@@ -32,7 +33,7 @@ public class BurstFireAdapter extends TypeAdapter<BurstFireMode> {
                     completeTime = in.nextLong();
                     break;
                 default:
-                    in.skipValue();
+                    throw new IOException("Gun files are corrupt! Appeared in: burst-fire section.");
             }
         }
 
