@@ -17,8 +17,6 @@ public class GunFactory {
     private final Gson gson;
     private final File gunFolder;
 
-    private volatile Set<Gun> testGuns = new HashSet<>();
-
     public GunFactory(WarZGuns core) {
         this.core = core;
         this.gunTracker = new GunTracker();
@@ -48,7 +46,7 @@ public class GunFactory {
     public void createTestGuns() {
         //Single-shot:
         IFireMode singleShot = new SingleFireMode();
-        Gun barret = new Gun("Barret", Material.DIAMOND_AXE, WeaponClass.SNIPER_RIFLE, FireModeType.BOLT, singleShot);
+        Gun barret = new Gun("barret", Material.DIAMOND_AXE, WeaponClass.SNIPER_RIFLE, FireModeType.BOLT, singleShot);
 
         //Shotgun
         IFireMode shotgunShot = new ShotgunFireMode(5);
@@ -58,30 +56,26 @@ public class GunFactory {
         IFireMode burstShot = new BurstFireMode(3, 1000);
         Gun m16 = new Gun("m16", Material.IRON_HOE, WeaponClass.ASSAULT_RIFLE, FireModeType.BURST, burstShot);
 
-        testGuns.add(barret);
-        testGuns.add(spas);
-        testGuns.add(m16);
+        core.getExecutor().execute(() -> {
+            if(!gunFolder.exists()) {
+                gunFolder.mkdirs();
+            }
+            this.saveFile(new File(gunFolder, barret.getGunName() + ".json"), this.serialize(barret));
+        });
 
         core.getExecutor().execute(() -> {
             if(!gunFolder.exists()) {
                 gunFolder.mkdirs();
             }
-
-            this.saveFile(new File(gunFolder, barret.getGunName() + ".json"), this.serialize(barret));
             this.saveFile(new File(gunFolder, spas.getGunName() + ".json"), this.serialize(spas));
-            this.saveFile(new File(gunFolder, m16.getGunName() + ".json"), this.serialize(m16));
         });
 
-        /*
-        for(Gun gun : testGuns) {
-            File file = new File(gunFolder, gun.getGunName() + ".json");
+        core.getExecutor().execute(() -> {
             if(!gunFolder.exists()) {
                 gunFolder.mkdirs();
             }
-            String json = this.serialize(gun);
-            this.saveFile(file, json);
-        }
-         */
+            this.saveFile(new File(gunFolder, m16.getGunName() + ".json"), this.serialize(m16));
+        });
 
     }
 
