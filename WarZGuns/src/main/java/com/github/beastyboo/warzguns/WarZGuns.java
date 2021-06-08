@@ -1,9 +1,13 @@
 package com.github.beastyboo.warzguns;
 
 import com.github.beastyboo.warzguns.calculator.DamageCalculator;
+import com.github.beastyboo.warzguns.gun.GunFactory;
 import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
@@ -13,19 +17,25 @@ public class WarZGuns {
     final JavaPlugin plugin;
     private final Logger logger;
     private final Executor executor;
+    private final Map<UUID, Long> gunDelayMap;
 
+    private GunFactory gunFactory;
     private DamageCalculator damageCalculator;
 
     WarZGuns(JavaPlugin plugin) {
         this.plugin = plugin;
         logger = plugin.getLogger();
+        gunDelayMap = new HashMap<>();
         executor = Executors.newFixedThreadPool(4);
     }
 
     void load() {
+        gunFactory = new GunFactory(this);
         damageCalculator = new DamageCalculator(this);
 
         plugin.getServer().getPluginManager().registerEvents(new TestEvents(this), plugin);
+
+        gunFactory.executeGunFactory();
     }
 
     void close() {
@@ -38,6 +48,10 @@ public class WarZGuns {
 
     public Logger getLogger() {
         return logger;
+    }
+
+    public Map<UUID, Long> getGunDelayMap() {
+        return gunDelayMap;
     }
 
     /**

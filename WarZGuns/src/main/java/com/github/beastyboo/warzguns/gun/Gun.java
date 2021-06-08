@@ -1,17 +1,21 @@
 package com.github.beastyboo.warzguns.gun;
 
-import com.github.beastyboo.warzguns.entity.Ammo;
+import com.github.beastyboo.warzguns.gun.firemode.FireModeType;
+import com.github.beastyboo.warzguns.gun.firemode.IFireMode;
+import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.Material;
 
 import java.util.Objects;
 
+@JsonAdapter(GunAdapter.class)
 public class Gun {
 
     private final String gunName;
     private final Material material;
     private final Ammo ammo;
     private final WeaponClass weaponClass;
-    private final FireMode fireMode;
+    private final FireModeType fireModeType;
+    private final IFireMode fireMode;
 
     private final boolean canAim;
 
@@ -31,11 +35,12 @@ public class Gun {
     private final double targetKnockBack;
     private final double recoil;
 
-    public Gun(String gunName, Material material, Ammo ammo, WeaponClass weaponClass, FireMode fireMode, boolean canAim, long reloadTime, long delay, int maxDistance, int maxClipSize, double damagePerBullet, double headShotIncrease, double legShotDecrease, double bulletSpeed, double accuracy, double accuracy_aimed, double accuracy_crouched, double targetKnockBack, double recoil) {
+    public Gun(String gunName, Material material, Ammo ammo, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode, boolean canAim, long reloadTime, long delay, int maxDistance, int maxClipSize, double damagePerBullet, double headShotIncrease, double legShotDecrease, double bulletSpeed, double accuracy, double accuracy_aimed, double accuracy_crouched, double targetKnockBack, double recoil) {
         this.gunName = gunName;
         this.material = material;
         this.ammo = ammo;
         this.weaponClass = weaponClass;
+        this.fireModeType = fireModeType;
         this.fireMode = fireMode;
         this.canAim = canAim;
         this.reloadTime = reloadTime;
@@ -69,7 +74,11 @@ public class Gun {
         return weaponClass;
     }
 
-    public FireMode getFireMode() {
+    public FireModeType getFireModeType() {
+        return fireModeType;
+    }
+
+    public IFireMode getFireMode() {
         return fireMode;
     }
 
@@ -134,12 +143,12 @@ public class Gun {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Gun gun = (Gun) o;
-        return canAim == gun.canAim && reloadTime == gun.reloadTime && delay == gun.delay && maxDistance == gun.maxDistance && maxClipSize == gun.maxClipSize && Double.compare(gun.damagePerBullet, damagePerBullet) == 0 && Double.compare(gun.headShotIncrease, headShotIncrease) == 0 && Double.compare(gun.legShotDecrease, legShotDecrease) == 0 && Double.compare(gun.bulletSpeed, bulletSpeed) == 0 && Double.compare(gun.accuracy, accuracy) == 0 && Double.compare(gun.accuracy_aimed, accuracy_aimed) == 0 && Double.compare(gun.accuracy_crouched, accuracy_crouched) == 0 && Double.compare(gun.targetKnockBack, targetKnockBack) == 0 && Double.compare(gun.recoil, recoil) == 0 && gunName.equals(gun.gunName) && material == gun.material && ammo.equals(gun.ammo) && weaponClass == gun.weaponClass && fireMode == gun.fireMode;
+        return canAim == gun.canAim && reloadTime == gun.reloadTime && delay == gun.delay && maxDistance == gun.maxDistance && maxClipSize == gun.maxClipSize && Double.compare(gun.damagePerBullet, damagePerBullet) == 0 && Double.compare(gun.headShotIncrease, headShotIncrease) == 0 && Double.compare(gun.legShotDecrease, legShotDecrease) == 0 && Double.compare(gun.bulletSpeed, bulletSpeed) == 0 && Double.compare(gun.accuracy, accuracy) == 0 && Double.compare(gun.accuracy_aimed, accuracy_aimed) == 0 && Double.compare(gun.accuracy_crouched, accuracy_crouched) == 0 && Double.compare(gun.targetKnockBack, targetKnockBack) == 0 && Double.compare(gun.recoil, recoil) == 0 && gunName.equals(gun.gunName) && material == gun.material && ammo.equals(gun.ammo) && weaponClass == gun.weaponClass && fireModeType == gun.fireModeType && fireMode.equals(gun.fireMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gunName, material, ammo, weaponClass, fireMode, canAim, reloadTime, delay, maxDistance, maxClipSize, damagePerBullet, headShotIncrease, legShotDecrease, bulletSpeed, accuracy, accuracy_aimed, accuracy_crouched, targetKnockBack, recoil);
+        return Objects.hash(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxDistance, maxClipSize, damagePerBullet, headShotIncrease, legShotDecrease, bulletSpeed, accuracy, accuracy_aimed, accuracy_crouched, targetKnockBack, recoil);
     }
 
     @Override
@@ -149,6 +158,7 @@ public class Gun {
                 ", material=" + material +
                 ", ammo=" + ammo +
                 ", weaponClass=" + weaponClass +
+                ", fireModeType=" + fireModeType +
                 ", fireMode=" + fireMode +
                 ", canAim=" + canAim +
                 ", reloadTime=" + reloadTime +

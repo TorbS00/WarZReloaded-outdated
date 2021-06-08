@@ -1,6 +1,6 @@
 package com.github.beastyboo.warzguns;
 
-import com.github.beastyboo.warzguns.entity.Ammo;
+import com.github.beastyboo.warzguns.gun.Ammo;
 import org.bukkit.Material;
 
 public class Gun {
