@@ -38,6 +38,10 @@ public class GunFactory {
 
     }
 
+    public GunTracker getGunTracker() {
+        return gunTracker;
+    }
+
     private void saveFile(File file, String json) {
         final FileWriter fw;
         try {

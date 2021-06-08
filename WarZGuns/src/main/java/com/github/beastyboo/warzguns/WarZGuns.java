@@ -1,8 +1,11 @@
 package com.github.beastyboo.warzguns;
 
+import com.github.beastyboo.warzguns.api.WarZGunsAPI;
 import com.github.beastyboo.warzguns.calculator.DamageCalculator;
+import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.GunFactory;
 import com.github.beastyboo.warzguns.listener.TestEvents;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -12,7 +15,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
-public class WarZGuns {
+public class WarZGuns implements WarZGunsAPI {
 
     final JavaPlugin plugin;
     private final Logger logger;
@@ -66,7 +69,21 @@ public class WarZGuns {
         return executor;
     }
 
+    public GunFactory getGunFactory() {
+        return gunFactory;
+    }
+
     public DamageCalculator getDamageCalculator() {
         return damageCalculator;
+    }
+
+    @Override
+    public Gun getGun(Material material) {
+        return gunFactory.getGunTracker().getGun(material);
+    }
+
+    @Override
+    public Gun getGun(String name) {
+        return gunFactory.getGunTracker().getGun(name);
     }
 }
