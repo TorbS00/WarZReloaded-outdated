@@ -44,7 +44,6 @@ public class GunAdapter extends TypeAdapter<Gun> {
         out.name("reloadTime").value(gun.getReloadTime());
         out.name("delay").value(gun.getDelay());
 
-        out.name("maxDistance").value(gun.getMaxDistance());
         out.name("maxClipSize").value(gun.getMaxClipSize());
 
         out.name("damagePerBullet").value(gun.getDamagePerBullet());
@@ -78,7 +77,6 @@ public class GunAdapter extends TypeAdapter<Gun> {
         long reloadTime = 0;
         long delay = 0;
 
-        int maxDistance = 0;
         int maxClipSize = 0;
 
         double damagePerBullet = 0;
@@ -134,9 +132,6 @@ public class GunAdapter extends TypeAdapter<Gun> {
                 case "delay":
                     delay = in.nextLong();
                     break;
-                case "maxDistance":
-                    maxDistance = in.nextInt();
-                    break;
                 case "maxClipSize":
                     maxClipSize = in.nextInt();
                     break;
@@ -171,7 +166,7 @@ public class GunAdapter extends TypeAdapter<Gun> {
                     throw new IOException("Gun files are corrupt! Appeared in: " + gunName);
             }
         }
-        Gun gun = new Gun(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxDistance, maxClipSize, damagePerBullet,
+        Gun gun = new Gun(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxClipSize, damagePerBullet,
                 headShotIncrease, legShotDecrease, bulletSpeed, accuracy, accuracy_aimed, accuracy_crouched, targetKnockBack, recoil);
         in.endObject();
         return gun;

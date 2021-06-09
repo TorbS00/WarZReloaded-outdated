@@ -43,7 +43,9 @@ public class ShotgunFireMode implements IFireMode {
                 newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
             }
 
-            Snowball bullet = player.launchProjectile(Snowball.class, newVector);
+            double blocksPerTick = gun.getBulletSpeed() / 20;
+
+            Snowball bullet = player.launchProjectile(Snowball.class, newVector.normalize().multiply(blocksPerTick));
             bullet.setShooter(player);
         }
 

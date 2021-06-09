@@ -22,7 +22,6 @@ public class Gun {
     private final long reloadTime;
     private final long delay;
 
-    private final int maxDistance;
     private final int maxClipSize;
 
     private final double damagePerBullet;
@@ -35,7 +34,7 @@ public class Gun {
     private final double targetKnockBack;
     private final double recoil;
 
-    public Gun(String gunName, Material material, Ammo ammo, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode, boolean canAim, long reloadTime, long delay, int maxDistance, int maxClipSize, double damagePerBullet, double headShotIncrease, double legShotDecrease, double bulletSpeed, double accuracy, double accuracy_aimed, double accuracy_crouched, double targetKnockBack, double recoil) {
+    public Gun(String gunName, Material material, Ammo ammo, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode, boolean canAim, long reloadTime, long delay, int maxClipSize, double damagePerBullet, double headShotIncrease, double legShotDecrease, double bulletSpeed, double accuracy, double accuracy_aimed, double accuracy_crouched, double targetKnockBack, double recoil) {
         this.gunName = gunName;
         this.material = material;
         this.ammo = ammo;
@@ -45,7 +44,6 @@ public class Gun {
         this.canAim = canAim;
         this.reloadTime = reloadTime;
         this.delay = delay;
-        this.maxDistance = maxDistance;
         this.maxClipSize = maxClipSize;
         this.damagePerBullet = damagePerBullet;
         this.headShotIncrease = headShotIncrease;
@@ -68,7 +66,6 @@ public class Gun {
         this.canAim = true;
         this.reloadTime = 5;
         this.delay = 5;
-        this.maxDistance = 5;
         this.maxClipSize = 5;
         this.damagePerBullet = 5;
         this.headShotIncrease = 5;
@@ -117,10 +114,6 @@ public class Gun {
         return delay;
     }
 
-    public int getMaxDistance() {
-        return maxDistance;
-    }
-
     public int getMaxClipSize() {
         return maxClipSize;
     }
@@ -166,12 +159,12 @@ public class Gun {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Gun gun = (Gun) o;
-        return canAim == gun.canAim && reloadTime == gun.reloadTime && delay == gun.delay && maxDistance == gun.maxDistance && maxClipSize == gun.maxClipSize && Double.compare(gun.damagePerBullet, damagePerBullet) == 0 && Double.compare(gun.headShotIncrease, headShotIncrease) == 0 && Double.compare(gun.legShotDecrease, legShotDecrease) == 0 && Double.compare(gun.bulletSpeed, bulletSpeed) == 0 && Double.compare(gun.accuracy, accuracy) == 0 && Double.compare(gun.accuracy_aimed, accuracy_aimed) == 0 && Double.compare(gun.accuracy_crouched, accuracy_crouched) == 0 && Double.compare(gun.targetKnockBack, targetKnockBack) == 0 && Double.compare(gun.recoil, recoil) == 0 && gunName.equals(gun.gunName) && material == gun.material && ammo.equals(gun.ammo) && weaponClass == gun.weaponClass && fireModeType == gun.fireModeType && fireMode.equals(gun.fireMode);
+        return canAim == gun.canAim && reloadTime == gun.reloadTime && delay == gun.delay && maxClipSize == gun.maxClipSize && Double.compare(gun.damagePerBullet, damagePerBullet) == 0 && Double.compare(gun.headShotIncrease, headShotIncrease) == 0 && Double.compare(gun.legShotDecrease, legShotDecrease) == 0 && Double.compare(gun.bulletSpeed, bulletSpeed) == 0 && Double.compare(gun.accuracy, accuracy) == 0 && Double.compare(gun.accuracy_aimed, accuracy_aimed) == 0 && Double.compare(gun.accuracy_crouched, accuracy_crouched) == 0 && Double.compare(gun.targetKnockBack, targetKnockBack) == 0 && Double.compare(gun.recoil, recoil) == 0 && gunName.equals(gun.gunName) && material == gun.material && ammo.equals(gun.ammo) && weaponClass == gun.weaponClass && fireModeType == gun.fireModeType && fireMode.equals(gun.fireMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxDistance, maxClipSize, damagePerBullet, headShotIncrease, legShotDecrease, bulletSpeed, accuracy, accuracy_aimed, accuracy_crouched, targetKnockBack, recoil);
+        return Objects.hash(gunName, material, ammo, weaponClass, fireModeType, fireMode, canAim, reloadTime, delay, maxClipSize, damagePerBullet, headShotIncrease, legShotDecrease, bulletSpeed, accuracy, accuracy_aimed, accuracy_crouched, targetKnockBack, recoil);
     }
 
     @Override
@@ -186,7 +179,6 @@ public class Gun {
                 ", canAim=" + canAim +
                 ", reloadTime=" + reloadTime +
                 ", delay=" + delay +
-                ", maxDistance=" + maxDistance +
                 ", maxClipSize=" + maxClipSize +
                 ", damagePerBullet=" + damagePerBullet +
                 ", headShotIncrease=" + headShotIncrease +
