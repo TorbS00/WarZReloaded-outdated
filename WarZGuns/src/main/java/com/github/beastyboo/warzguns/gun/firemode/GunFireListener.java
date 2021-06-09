@@ -22,6 +22,10 @@ public class GunFireListener implements Listener {
             return;
         }
 
+        if(event.getItem() == null) {
+            return;
+        }
+
         Gun gun = core.getGun(event.getItem().getType());
 
         if(gun == null) {
