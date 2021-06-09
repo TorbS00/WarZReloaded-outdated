@@ -20,6 +20,7 @@ public class BulletTracker {
 
     protected void addBullet(Bullet bullet) {
         bulletCache.put(bullet.getUuid(), bullet);
+        System.out.println("Size: " + bulletCache.size());
     }
 
     public Bullet getBullet(UUID uuid) {

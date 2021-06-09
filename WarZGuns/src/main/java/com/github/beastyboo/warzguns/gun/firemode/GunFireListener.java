@@ -33,7 +33,8 @@ public class GunFireListener implements Listener {
         }
 
         Player player = event.getPlayer();
-        gun.getFireMode().executeGunShot(core, player, gun);
-
+        if(gun.getFireMode().executeGunShot(core, player, gun)) {
+            //Recoil
+        }
     }
 }

@@ -7,6 +7,7 @@ import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
@@ -50,6 +51,15 @@ public class BulletHitListener implements Listener {
                 calculatedDamage = gun.getDamagePerBullet();
             }
             event.setDamage(calculatedDamage);
+
+            /*
+
+            knockback?
+
+            Vector entityVector = entity.getVelocity();
+            Vector knockBackVector = new Vector(entityVector.getX() * gun.getTargetKnockBack(), entityVector.getY(), entityVector.getZ() * gun.getTargetKnockBack());
+            entity.setVelocity(knockBackVector);
+             */
         }
     }
 }
