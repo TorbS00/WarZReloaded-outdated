@@ -39,11 +39,12 @@ public class BurstFireMode implements IFireMode {
         core.getGunDelayMap().put(uuid, System.currentTimeMillis() + gun.getDelay());
 
         new BukkitRunnable() {
+            int i = 0;
             @Override
             public void run() {
-                int i = 0;
                 if(i >= bulletsPerBurst) {
                     cancel();
+                    return;
                 }
                 Snowball bullet = player.launchProjectile(Snowball.class, player.getLocation().getDirection());
                 bullet.setShooter(player);

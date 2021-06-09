@@ -4,13 +4,13 @@ import com.github.beastyboo.warzguns.api.WarZGunsAPI;
 import com.github.beastyboo.warzguns.calculator.DamageCalculator;
 import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.GunFactory;
+import com.github.beastyboo.warzguns.gun.firemode.GunFireListener;
 import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -37,7 +37,7 @@ public class WarZGuns implements WarZGunsAPI {
         gunFactory = new GunFactory(this);
         damageCalculator = new DamageCalculator(this);
 
-        plugin.getServer().getPluginManager().registerEvents(new TestEvents(this), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new GunFireListener(this), plugin);
 
         gunFactory.executeGunFactory();
     }
