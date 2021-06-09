@@ -6,6 +6,7 @@ import com.github.beastyboo.warzguns.gun.firemode.adapter.ShotgunFireAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
+import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
@@ -33,7 +34,16 @@ public class ShotgunFireMode implements IFireMode {
         }
 
         for(int i=0; i<bulletsPerRound; i++) {
-            Snowball bullet = player.launchProjectile(Snowball.class, player.getLocation().getDirection());
+            Vector vector = player.getLocation().getDirection();
+            Vector newVector = null;
+
+            if(player.isSneaking()) {
+                newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy_crouched());
+            } else {
+                newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
+            }
+
+            Snowball bullet = player.launchProjectile(Snowball.class, newVector);
             bullet.setShooter(player);
         }
 

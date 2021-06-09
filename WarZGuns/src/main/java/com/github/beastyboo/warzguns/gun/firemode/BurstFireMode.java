@@ -7,6 +7,7 @@ import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
@@ -46,7 +47,16 @@ public class BurstFireMode implements IFireMode {
                     cancel();
                     return;
                 }
-                Snowball bullet = player.launchProjectile(Snowball.class, player.getLocation().getDirection());
+
+                Vector vector = player.getLocation().getDirection();
+                Vector newVector = null;
+
+                if(player.isSneaking()) {
+                    newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy_crouched());
+                } else {
+                    newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
+                }
+                Snowball bullet = player.launchProjectile(Snowball.class, newVector);
                 bullet.setShooter(player);
                 i++;
             }

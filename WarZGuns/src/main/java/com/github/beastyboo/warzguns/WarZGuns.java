@@ -1,6 +1,7 @@
 package com.github.beastyboo.warzguns;
 
 import com.github.beastyboo.warzguns.api.WarZGunsAPI;
+import com.github.beastyboo.warzguns.calculator.AccuracyCalculator;
 import com.github.beastyboo.warzguns.calculator.DamageCalculator;
 import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.GunFactory;
@@ -8,6 +9,7 @@ import com.github.beastyboo.warzguns.gun.firemode.GunFireListener;
 import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.checkerframework.checker.units.qual.A;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +27,7 @@ public class WarZGuns implements WarZGunsAPI {
 
     private GunFactory gunFactory;
     private DamageCalculator damageCalculator;
+    private AccuracyCalculator accuracyCalculator;
 
     WarZGuns(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -36,6 +39,7 @@ public class WarZGuns implements WarZGunsAPI {
     void load() {
         gunFactory = new GunFactory(this);
         damageCalculator = new DamageCalculator(this);
+        accuracyCalculator = new AccuracyCalculator();
 
         plugin.getServer().getPluginManager().registerEvents(new GunFireListener(this), plugin);
 
@@ -76,6 +80,10 @@ public class WarZGuns implements WarZGunsAPI {
 
     public DamageCalculator getDamageCalculator() {
         return damageCalculator;
+    }
+
+    public AccuracyCalculator getAccuracyCalculator() {
+        return accuracyCalculator;
     }
 
     @Override
