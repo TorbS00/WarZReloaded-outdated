@@ -78,10 +78,7 @@ public class TestEvents implements Listener {
             }
 
 
-
-
             event.setDamage(25);
-
         }
     }
 

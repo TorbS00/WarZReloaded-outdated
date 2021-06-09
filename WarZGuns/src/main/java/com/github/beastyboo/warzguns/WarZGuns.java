@@ -5,11 +5,12 @@ import com.github.beastyboo.warzguns.calculator.AccuracyCalculator;
 import com.github.beastyboo.warzguns.calculator.DamageCalculator;
 import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.GunFactory;
+import com.github.beastyboo.warzguns.gun.bullet.Bullet;
+import com.github.beastyboo.warzguns.gun.bullet.BulletFactory;
+import com.github.beastyboo.warzguns.gun.bullet.BulletHitListener;
 import com.github.beastyboo.warzguns.gun.firemode.GunFireListener;
-import com.github.beastyboo.warzguns.listener.TestEvents;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,8 @@ public class WarZGuns implements WarZGunsAPI {
     private final Map<UUID, Long> gunDelayMap;
 
     private GunFactory gunFactory;
+    private BulletFactory bulletFactory;
+
     private DamageCalculator damageCalculator;
     private AccuracyCalculator accuracyCalculator;
 
@@ -38,10 +41,12 @@ public class WarZGuns implements WarZGunsAPI {
 
     void load() {
         gunFactory = new GunFactory(this);
+        bulletFactory = new BulletFactory(this);
         damageCalculator = new DamageCalculator(this);
         accuracyCalculator = new AccuracyCalculator();
 
         plugin.getServer().getPluginManager().registerEvents(new GunFireListener(this), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new BulletHitListener(this), plugin);
 
         gunFactory.executeGunFactory();
     }
@@ -78,6 +83,10 @@ public class WarZGuns implements WarZGunsAPI {
         return gunFactory;
     }
 
+    public BulletFactory getBulletFactory() {
+        return bulletFactory;
+    }
+
     public DamageCalculator getDamageCalculator() {
         return damageCalculator;
     }
@@ -94,5 +103,10 @@ public class WarZGuns implements WarZGunsAPI {
     @Override
     public Gun getGun(String name) {
         return gunFactory.getGunTracker().getGun(name);
+    }
+
+    @Override
+    public Bullet getBullet(UUID uuid) {
+        return bulletFactory.getBulletTracker().getBullet(uuid);
     }
 }

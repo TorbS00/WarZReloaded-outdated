@@ -36,5 +36,4 @@ public class GunFireListener implements Listener {
         gun.getFireMode().executeGunShot(core, player, gun);
 
     }
-
 }

@@ -3,8 +3,6 @@ package com.github.beastyboo.warzguns.gun.firemode;
 import com.github.beastyboo.warzguns.WarZGuns;
 import com.github.beastyboo.warzguns.gun.Gun;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
-import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
@@ -23,20 +21,7 @@ public class SingleFireMode implements IFireMode {
                 return false;
             }
         }
-        Vector vector = player.getLocation().getDirection();
-        Vector newVector = null;
-
-        if(player.isSneaking()) {
-            newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy_crouched());
-        } else {
-            newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
-        }
-
-        double blocksPerTick = gun.getBulletSpeed() / 20;
-
-        Snowball bullet = player.launchProjectile(Snowball.class, newVector.normalize().multiply(blocksPerTick));
-        bullet.setShooter(player);
-
+        core.getBulletFactory().createBullet(player, gun);
         core.getGunDelayMap().put(uuid, System.currentTimeMillis() + gun.getDelay());
         return true;
     }

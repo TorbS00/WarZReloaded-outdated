@@ -5,9 +5,7 @@ import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.firemode.adapter.BurstFireAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
@@ -47,19 +45,7 @@ public class BurstFireMode implements IFireMode {
                     cancel();
                     return;
                 }
-
-                Vector vector = player.getLocation().getDirection();
-                Vector newVector = null;
-
-                if(player.isSneaking()) {
-                    newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy_crouched());
-                } else {
-                    newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
-                }
-                double blocksPerTick = gun.getBulletSpeed() / 20;
-
-                Snowball bullet = player.launchProjectile(Snowball.class, newVector.normalize().multiply(blocksPerTick));
-                bullet.setShooter(player);
+                core.getBulletFactory().createBullet(player, gun);
                 i++;
             }
         }.runTaskTimer(core.getPlugin(), 0L, burstDelay);

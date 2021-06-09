@@ -7,8 +7,6 @@ import com.google.gson.GsonBuilder;
 import org.bukkit.Material;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class GunFactory {
 
@@ -25,7 +23,6 @@ public class GunFactory {
     }
 
     public void executeGunFactory() {
-
         if(!gunFolder.exists()) {
             gunFolder.mkdirs();
         }
@@ -33,6 +30,9 @@ public class GunFactory {
         File[] levelListing = gunFolder.listFiles();
         if (levelListing == null) {
             return;
+        }
+        if(levelListing.length < 1) {
+            createTestGuns();
         }
 
         for (File child : levelListing) {

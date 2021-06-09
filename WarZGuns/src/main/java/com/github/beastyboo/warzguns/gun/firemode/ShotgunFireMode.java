@@ -32,21 +32,8 @@ public class ShotgunFireMode implements IFireMode {
                 return false;
             }
         }
-
         for(int i=0; i<bulletsPerRound; i++) {
-            Vector vector = player.getLocation().getDirection();
-            Vector newVector = null;
-
-            if(player.isSneaking()) {
-                newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy_crouched());
-            } else {
-                newVector = core.getAccuracyCalculator().calculateAccuracy(vector, gun.getAccuracy());
-            }
-
-            double blocksPerTick = gun.getBulletSpeed() / 20;
-
-            Snowball bullet = player.launchProjectile(Snowball.class, newVector.normalize().multiply(blocksPerTick));
-            bullet.setShooter(player);
+            core.getBulletFactory().createBullet(player, gun);
         }
 
         core.getGunDelayMap().put(uuid, System.currentTimeMillis() + gun.getDelay());
