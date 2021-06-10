@@ -1,7 +1,8 @@
-package com.github.beastyboo.warzguns.gun.firemode;
+package com.github.beastyboo.warzguns.gun.firemode.mode;
 
 import com.github.beastyboo.warzguns.WarZGuns;
 import com.github.beastyboo.warzguns.gun.Gun;
+import com.github.beastyboo.warzguns.gun.firemode.IFireMode;
 import com.github.beastyboo.warzguns.gun.firemode.adapter.ShotgunFireAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.entity.Player;

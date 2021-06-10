@@ -1,6 +1,6 @@
 package com.github.beastyboo.warzguns.gun.firemode.adapter;
 
-import com.github.beastyboo.warzguns.gun.firemode.BurstFireMode;
+import com.github.beastyboo.warzguns.gun.firemode.mode.BurstFireMode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;

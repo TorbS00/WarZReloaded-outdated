@@ -2,6 +2,10 @@ package com.github.beastyboo.warzguns.gun;
 
 import com.github.beastyboo.warzguns.gun.ammo.Ammo;
 import com.github.beastyboo.warzguns.gun.firemode.*;
+import com.github.beastyboo.warzguns.gun.firemode.mode.BurstFireMode;
+import com.github.beastyboo.warzguns.gun.firemode.IFireMode;
+import com.github.beastyboo.warzguns.gun.firemode.mode.ShotgunFireMode;
+import com.github.beastyboo.warzguns.gun.firemode.mode.SingleFireMode;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

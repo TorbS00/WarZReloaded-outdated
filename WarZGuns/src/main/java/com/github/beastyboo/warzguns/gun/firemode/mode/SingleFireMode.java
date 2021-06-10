@@ -1,7 +1,8 @@
-package com.github.beastyboo.warzguns.gun.firemode;
+package com.github.beastyboo.warzguns.gun.firemode.mode;
 
 import com.github.beastyboo.warzguns.WarZGuns;
 import com.github.beastyboo.warzguns.gun.Gun;
+import com.github.beastyboo.warzguns.gun.firemode.IFireMode;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
