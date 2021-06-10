@@ -5,8 +5,6 @@ import com.github.beastyboo.warzguns.gun.Gun;
 import com.github.beastyboo.warzguns.gun.firemode.adapter.ShotgunFireAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
-import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
