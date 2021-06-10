@@ -1,5 +1,6 @@
 package com.github.beastyboo.warzguns.gun;
 
+import com.github.beastyboo.warzguns.gun.ammo.Ammo;
 import com.github.beastyboo.warzguns.gun.firemode.*;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
