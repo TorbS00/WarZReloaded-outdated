@@ -87,10 +87,12 @@ public class WarZGuns implements WarZGunsAPI {
         return bulletFactory;
     }
 
+    @Override
     public DamageCalculator getDamageCalculator() {
         return damageCalculator;
     }
 
+    @Override
     public AccuracyCalculator getAccuracyCalculator() {
         return accuracyCalculator;
     }
