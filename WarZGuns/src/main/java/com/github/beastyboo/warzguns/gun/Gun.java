@@ -57,7 +57,7 @@ public class Gun {
         this.recoil = recoil;
     }
 
-    public Gun(String gunName, Material material, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode) {
+    public Gun(String gunName, Material material, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode) { // Constructor chaining
         this(gunName, material, new Ammo("Example-Ammo"), weaponClass, fireModeType, fireMode, true, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
     }
 
