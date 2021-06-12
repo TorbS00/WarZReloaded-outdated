@@ -58,25 +58,7 @@ public class Gun {
     }
 
     public Gun(String gunName, Material material, WeaponClass weaponClass, FireModeType fireModeType, IFireMode fireMode) {
-        this.gunName = gunName;
-        this.material = material;
-        this.ammo = new Ammo("Cool-ammo");
-        this.weaponClass = weaponClass;
-        this.fireModeType = fireModeType;
-        this.fireMode = fireMode;
-        this.canAim = true;
-        this.reloadTime = 5;
-        this.delay = 5;
-        this.maxClipSize = 5;
-        this.damagePerBullet = 5;
-        this.headShotIncrease = 5;
-        this.legShotDecrease = 5;
-        this.bulletSpeed = 5;
-        this.accuracy = 5;
-        this.accuracy_aimed = 5;
-        this.accuracy_crouched = 5;
-        this.targetKnockBack = 5;
-        this.recoil = 5;
+        this(gunName, material, new Ammo("Example-Ammo"), weaponClass, fireModeType, fireMode, true, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
     }
 
     public String getGunName() {
