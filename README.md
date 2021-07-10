@@ -1,4 +1,12 @@
 # WarZReloaded
+
+# ARCHIVING THIS REPOSITORY!
+
+## I did not like the way I was repeating myself, and how this turned out. Therefore it's getting archived, and made private soon when the new repo is starting to take shape. 
+
+
+========================================================================================================================================================================
+
 WarZ gamemode inspired from Brawl.com, updated to be fully compatible with the newest version of Minecraft. Built using PaperMC.
 
 This project aims to provide a more generic WarZ version which is fully customizable for each individual server owner. The core plugin will contain information and logic surrounding Zones, loot-tables and zombies, while guns, and consumable items will be seperated into their own plugins. The reason for this, is for practise servers to be able to use the same plugins for food and guns, like the core plugin would use. 
