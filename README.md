@@ -1,4 +1,4 @@
-# WarZReloaded
+# WarZReloaded-OUTDATED
 
 # ARCHIVING THIS REPOSITORY!
 
